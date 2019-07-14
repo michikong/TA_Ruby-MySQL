@@ -1,3 +1,7 @@
+# ERB ライブラリを読み込む
+require 'erb'
+
+# HTMLを表示するメソッドを定義
 def web_page
   <<-PAGE
 <!DOCTYPE html>
@@ -7,10 +11,15 @@ def web_page
     <title>タイトル</title>
   </head>
   <body>
-    <p>本文です。</p>
+    <p><%= Time.now %></p>
   </body>
 </html>
   PAGE
 end
 
-puts web_page
+# ERB オブジェクトのインスタンスを生成
+erb = ERB.new(web_page)
+# ERB 内の Ruby コードを実行(Time.now)
+result = erb.result
+# 文字列を表示
+puts result
