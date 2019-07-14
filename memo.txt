@@ -136,3 +136,14 @@ erb :index
 ・views/index.erb 内に埋め込まれた Ruby コードを実行した
 ・結果として出力された HTML をレスポンスとして返すという処理
 views/index.erb が呼び出されるのは Sinatra のルール
+
+
+-----------------
+Webサーバを起動する方法
+-----------------
+
+# Web サーバ(Puma)を起動
+ruby app.rb -o $IP -p $PORT
+
+ポートは 8080
+127.0.0.1 （ローカル環境）
