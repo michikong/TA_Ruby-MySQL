@@ -87,3 +87,52 @@ Gemがあることで、私達は、自分で全ての機能を作る必要が�
 簡単に機能を実装することができるのです。
 車輪の再発明は避けるべきです。
 
+
+-----------------
+3.2 Webサーバの起動
+-----------------
+Puma を起動するためには Ruby で設定ファイルを記述しなければならない。
+この設定を行うには高度な知識が必要となるので、
+手軽に Web サーバを起動して、Web アプリケーシ
+ョンを作成できるようなライブラリをインストールします(Sinatraなど)
+
+Sinatraとは
+軽量なWEBアプリケーションフレームワーク
+
+WEBアプリケーションフレームワークとは
+WEBアプリを作成するための機能が備わった雛形(テンプレート)のようなもの
+
+自分で一からアプリを作成するのは骨が折れる作業ですが、
+このようなフレームワークの恩恵に預かることで、
+素早く堅牢なアプリを作成できる。
+
+# Sinatra のインストール
+gem install sinatra
+
+作成する Web アプリ
+HTML フォームがあり、名前を入力すると挨拶してくれるだけの 
+Web アプリです。Web アプリと呼ぶには、貧弱過ぎる代物ですが、
+Web アプリの基礎の基礎です。
+
+# フォルダを作成
+mkdir ~/environment/lessen8_10/sinatra-web
+mkdir ~/environment/lessen8_10/sinatra-web/views/
+touch ~/environment/lessen8_10/sinatra-web/views/index.erb
+touch ~/environment/lessen8_10/sinatra-web/app.rb
+
+
+-----------------
+app.rb
+-----------------
+
+require 'sinatra' 
+・Sinatra を読み込み
+
+get '/'
+・トップページ(/)に HTTP リクエストの GET メソッドが来たときに
+対する処理を do ... end のブロックの中に記述
+
+erb :index
+・views/index.erb 内に埋め込まれた Ruby コードを実行した
+・結果として出力された HTML をレスポンスとして返すという処理
+views/index.erb が呼び出されるのは Sinatra のルール
