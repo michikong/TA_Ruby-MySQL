@@ -23,5 +23,6 @@ input要素のplaceholder属性(placeholder="書籍タイトルを入力")
 required属性
    空文字で送信できないようになる
    
-   
-   
+-----------------
+3.1 Sinatra + Puma で Web サイトを表示する
+-----------------
