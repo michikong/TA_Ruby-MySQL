@@ -1,0 +1,95 @@
+-----------------
+RubyとMySQLの連携
+-----------------
+
+今回作成するWebアプリ
+Booklist というWebアプリを作成します。
+本のタイトルをデータベースに登録（保存）して、
+一覧を表示するだけのWebアプリ。
+
+-----------------
+3. HTML で書いてみる
+-----------------
+
+
+form要素の　action="/"
+   フォームの送信先をトップページ
+   （結果このファイル自身）にするために指定
+
+input要素のplaceholder属性(placeholder="書籍タイトルを入力")
+   テキスト入力フォームの中に何を書けばいいのか、
+   薄くグレーの文字を追加
+   
+required属性
+   空文字で送信できないようになる
+   
+-----------------
+3.1 Sinatra + Puma で Web サイトを表示する
+-----------------
+
+-----------------
+4. HTML内で動的な部分をRubyで置き換える
+-----------------
+
+-----------------
+5. 必要に応じてデータベースのテーブルを作成する
+-----------------
+-----------------
+5.1 データベースサーバの起動確認
+-----------------
+
+# MySQL起動
+sudo service mysqld start
+
+# MySQLが起動しているか確認
+sudo service mysqld status
+
+-----------------
+5.2 データベースへ接続
+-----------------
+
+# MySQLサーバへ接続
+mysql -u root
+
+-----------------
+5.3 データベースの作成
+-----------------
+
+# データベースの作成
+mysql> CREATE DATABASE データベース名前;
+
+# データベースの確認
+mysql> show databases;
+
+# データベースの削除
+mysql> drop database 削除したいデータベース;
+
+-----------------
+5.4 テーブルの作成
+-----------------
+
+create_table_booklist.sqlファイルを作成
+
+booklist/create_table_booklist.sql
+
+   CREATE TABLE booklist.books (
+     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+     book_title VARCHAR(100),
+     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+   );
+
+
+# 作成したファイルを実行
+mysql> source　~/フルパス
+
+# 作業するデータベース(booklist)を指定(USE)
+mysql> USE データベース名;
+
+# テストデータを3レコード挿入
+
+mysql> INSERT INTO booklist.books (book_title) VALUES("非エンジニアのためのプログラミング講座");
+mysql> INSERT INTO booklist.books (book_title) VALUES("プログラミングRuby");
+mysql> INSERT INTO booklist.books (book_title) VALUES("入門HTML5");
+
+# テストデータが挿入されているか確認
+SELECT * FROM booklist.books;
