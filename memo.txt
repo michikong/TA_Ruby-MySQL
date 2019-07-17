@@ -239,3 +239,22 @@ POSTは以下のようなリクエスト
 ※※※HTTPリクエストをする際、
 大事な情報を送信する必要のあるときは POST を使う
 
+
+-----------------
+4.2 POSTでフォームから情報を送信する
+-----------------
+HTTPリクエストの中でPOSTメソッドを使ってフォームの送信を行う
+
+    <form action="/" method="POST">
+      <label>名前: <input type="text" name="target_name"></label>
+      <input type="submit" value="送信">
+    </form>
+    
+# action="/"
+フォームは / （トップ）へ送信されることになる
+/ （トップ）に渡るというのことは、app.rb にデータが渡る
+なので app.rb の中で送信されたフォームデータを処理する
+プログラムも必要になる。
+
+# method="POST"
+HTTPリクエストのPOSTメソッドとして送信することを指定

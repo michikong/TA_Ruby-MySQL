@@ -5,6 +5,11 @@
     <title>タイトル</title>
   </head>
   <body>
+    <form action="/" method="POST">
+      <label>名前: <input type="text" name="target_name"></label>
+      <input type="submit" value="送信">
+    </form>
+    
     <% name = '関川' %>
     <% time_japan = Time.now.getlocal("+09:00") %>
     <p>今は<%= time_japan.hour %>時です。</p>
