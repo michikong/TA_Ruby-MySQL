@@ -163,3 +163,22 @@ app.rb で代入したレコード達が入っている。
 record に入っているレコード1つからカラム (book_title) を選択し、
 欲しい値だけを取り出し、表示させている。
 
+-----------------
+6.4 書籍名登録フォームからデータ受け取る
+-----------------
+    <form action="/" method="post">
+      <input type="text" name="book_title" placeholder="書籍タイトルを入力" required>
+      <input type="submit" name="submit_add_book" value="登録">
+    </form>
+    
+フォームのHTMLには上記のように書かれているので、
+このフォームは、自分自身のファイル(action="/"から判定)に向けて、
+POSTメソッド(method="POST"で判定)で、書籍タイトルデータ
+を送信することがわかります。送信されたデータは、
+name="book_title"と書かれているため、Sinatra の機能により 
+Ruby で params['book_title'] から書籍タイトルデータにア
+クセスできます。
+
+
+
+
