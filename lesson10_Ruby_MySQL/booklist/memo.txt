@@ -93,3 +93,30 @@ mysql> INSERT INTO booklist.books (book_title) VALUES("入門HTML5");
 
 # テストデータが挿入されているか確認
 SELECT * FROM booklist.books;
+
+-----------------
+6. RubyとMySQLの連携
+-----------------
+6.1 RubyプログラムからMySQLとの通信手段を確保する
+
+# mysql2とは
+・Gem
+・Ruby から MySQL に接続するために必要
+・mysqlというソフトウェアとRubyというプログラムの
+　仲介役になるためのライブラリ
+
+# mysql2 のインストール
+sudo yum install mysql-devel -y
+gem install mysql2
+
+# mysql2の連携
+
+app.rb
+
+# require 'mysql2'
+mysql2 の Gem を使用するための読み込みコード
+
+# client = Mysql2::Client.new(...)
+MySQL のクライアントを Ruby プログラム上で作成
+Ruby と MySQL との通信を確保。確保した通信手段は
+client　という変数にインスタンスとして代入。
