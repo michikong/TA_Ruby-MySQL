@@ -17,9 +17,9 @@
     </form>
     <h2>登録された書籍一覧</h2>
     <ul>
-      <%# 登録された書籍タイトルの数だけループ 開始 %>
-        <li><%# 書籍タイトルの表示 %></li>
-      <%# ループ 終了 %>
+      <% @records.each do |record| %>
+        <li><%= record['book_title'] %></li>
+      <% end %>
     </ul>
   </body>
 </html>

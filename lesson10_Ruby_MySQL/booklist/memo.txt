@@ -134,3 +134,32 @@ SQL は実行
 その結果を @records に代入
 @recordsにはINSERTした書籍タイトル（下記リスト）の
 レコード達が入っている。
+
+
+-----------------
+6.3 SQLの実行結果を受け取って表示する
+-----------------
+
+Sinatra の機能により booklist.erb に渡された @recordsを使い
+書籍タイトルの一覧を表示させる。
+
+@recordsを受け取ったので、レコードの数だけループを使って表示
+
+# 追加要素　booklist.erb の ul 
+
+    <ul>
+      <% @records.each do |record| %>
+        <li><%= record['book_title'] %></li>
+      <% end %>
+    </ul>
+
+@records
+app.rb で代入したレコード達が入っている。
+
+@records.each do |record| ... end
+レコードを1つずつ取り出して、 record 変数に代入している。
+
+<%= record['book_title'] %>
+record に入っているレコード1つからカラム (book_title) を選択し、
+欲しい値だけを取り出し、表示させている。
+
