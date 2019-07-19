@@ -18,7 +18,7 @@
     <h2>登録された書籍一覧</h2>
     <ul>
       <% @records.each do |record| %>
-        <li><%= record['book_title'] %></li>
+        <li><%= ERB::Util.html_escape(record['book_title']) %></li>
       <% end %>
     </ul>
   </body>

@@ -179,6 +179,20 @@ name="book_title"と書かれているため、Sinatra の機能により
 Ruby で params['book_title'] から書籍タイトルデータにア
 クセスできます。
 
+-----------------
+6.5 受け取ったデータをデータベースに保存する
+-----------------
+書籍タイトルを保存しているコード
 
+  book_title = params['book_title']
+  statement = client.prepare('INSERT INTO books (book_title) VALUES(?)')
+  statement.execute(book_title)
+
+<li><%= ERB::Util.html_escape(record['book_title']) %></li>
+# ERB::Util.html_escape() メソッドの追加
+
+無害化コード
+HTMLやJavaScriptをプログラムとして実行されず、
+ただの文字列として表示する無害化のためのメソッド
 
 
