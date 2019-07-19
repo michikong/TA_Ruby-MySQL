@@ -94,6 +94,14 @@ mysql> INSERT INTO booklist.books (book_title) VALUES("入門HTML5");
 # テストデータが挿入されているか確認
 SELECT * FROM booklist.books;
 
+# [例] id カラムの値が 10 のデータを削除する
+DELETE FROM mytbl WHERE id = 10;
+
+# [例]全てのデータを削除する
+DELETE FROM mytbl;
+
+
+DELETE FROM booklist.books WHERE id = 4;
 -----------------
 6. RubyとMySQLの連携
 -----------------
